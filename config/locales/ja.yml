@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      movie: 映画
+    attributes:
+      movie:
+        title: タイトル
+        director: 監督
+        studio: スタジオ
+        release_year: 公開年
+        genre: ジャンル
+        created_at: 作成日
+        updated_at: 更新日
+  activemodel:
+    models:
+      values/genre/mystery: ミステリー
+      values/genre/comedy: コメディ
+    attributes:
+      values/genre/mystery:
+        scare_level: 怖さ指数
+        age_restriction: 年齢制限
+        puzzle_difficulty: 謎の難易度
+      values/genre/comedy:
+        humor_type: 笑いのタイプ
+        cultural_bias: ユーモアの国別傾向
+

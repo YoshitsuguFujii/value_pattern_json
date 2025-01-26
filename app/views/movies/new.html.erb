@@ -1,0 +1,34 @@
+<h1 class="mt-5">映画入稿</h1>
+
+<% if @movie.errors.any? %>
+  <div class="row text-danger">
+    <%= "#{Movie.model_name.human}の入力内容に誤りがあります" %>
+  </div>
+<% end %>
+
+<%= bootstrap_form_with(model: @movie, local: true, layout: :horizontal) do |f| %>
+  <div class="mb-3">
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.text_field :director, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.number_field :release_year, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.text_field :studio, class: "form-control" %>
+  </div>
+
+  <% f.object.genre.each do |g| %>
+    <%= f.fields_for "genre[]", g do |fg| %>
+      <% # mysteryの場合は"genre/mystery"となる %>
+      <%= render "#{fg.object.class.name.underscore.split('/')[1..].join('/')}", fg: %>
+    <% end %>
+  <% end %>
+
+  <%= f.submit "入稿", class: "btn btn-primary" %>
+<% end %>

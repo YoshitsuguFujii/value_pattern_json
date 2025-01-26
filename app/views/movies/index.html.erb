@@ -1,0 +1,30 @@
+<h1 class="mt-5">映画一覧</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Movie.human_attribute_name(:title) %></th>
+      <th><%= Movie.human_attribute_name(:director) %></th>
+      <th><%= Movie.human_attribute_name(:release_year) %></th>
+      <th><%= Movie.human_attribute_name(:studio) %></th>
+      <th><%= Movie.human_attribute_name(:genre) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.director %></td>
+        <td><%= movie.release_year %></td>
+        <td><%= movie.studio %></td>
+        <td>
+          <% movie.genre.each do |g| %>
+            <%= g.class.name.demodulize %> (Scare Level: <%= g.scare_level %>)
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "映画入稿", new_movie_path, class: "button" %>
