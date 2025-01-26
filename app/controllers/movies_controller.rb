@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
 
     # formで選択したジャンルに応じて動的に入力欄を出すのが正しいだけど、
     # そこまで実装するとコードが煩雑になってノイズになるのでミステリーとコメディがを選んだものとする
-    # add_mysteryかadd_comedyを消すと入力欄も消えるのでお試しあれ
+    # add_mysteryかadd_comedyを消すと対応する入力欄も消えるのでお試しあれ
     @movie.add_mystery
     @movie.add_comedy
   end

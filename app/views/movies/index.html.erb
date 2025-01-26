@@ -18,9 +18,7 @@
         <td><%= movie.release_year %></td>
         <td><%= movie.studio %></td>
         <td>
-          <% movie.genre.each do |g| %>
-            <%= g.class.name.demodulize %> (Scare Level: <%= g.scare_level %>)
-          <% end %>
+          <%= movie.genre.map{ it.class.model_name.human }.join('/') %>
         </td>
       </tr>
     <% end %>
